@@ -21,9 +21,9 @@
             <p>Price</p>
             <div class="div2">
                 <p class="price">{{res.0.price}}</p>
-                <span style="color: {%%}{%%}{%%}">&#160; ({{res.0.1d.price_change_pct}}%)</span>
+                <span style="{% if '-' in res.0.1d.price_change_pct %} color: #ff0000; {% else %} color: #00ff00; {% endif %}">&#160; {% if '-' in res.0.1d.price_change_pct %}{% else %}+{% endif %}{{res.0.1d.price_change_pct}}%</span>
             </div>
-            <span>({{res.0.1d.price_change}})</span>
+            <span style="{% if '-' in res.0.1d.price_change %} color: #ff0000; {% else %} color: #00ff00; {% endif %}">{% if '-' in res.0.1d.price_change_pct %}{% else %}+{% endif %}{{res.0.1d.price_change}}</span>
         </div>
         <div><p>Market Cap</p><p class="price">{{res.0.market_cap}}</p></div>
         <div><p>Circulating Supply</p><p class="price">{{res.0.circulating_supply}}</p></div>
