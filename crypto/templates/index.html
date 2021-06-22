@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Watch real-time crypto prices">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Crypto Prices</title>
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Icon</th>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Market Cap</th>
+        </tr>
+        <tbody>
+        {% for c in res %}
+        <tr>
+            <td>{{c.rank}}</td>
+            <td><img class="logo" src={{c.logo_url}}></td>
+            <td class="link"><a href="/{{c.symbol}}">{{c.name}}</a></td>
+            <td>{{c.symbol}}</td>
+            <td class="price">${{c.price}}</td>
+            <td class="price">${{c.market_cap}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
