@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap');
 
 * {
     margin: 0;
     padding : 0;
     list-style: none;
     text-decoration: none;
-    font-size: 23px;
     font-family: 'Lexend', sans-serif;
 
 }
@@ -13,9 +12,10 @@
 table {
     margin: 20px auto 20px auto;
     text-align: center;
-    width: 1000px;
+    width: 1200px;
     border-radius: 5px;
     box-shadow: 3px 3px 20px #267a6b;
+    font-size: 23px;
 }
 
 th {
@@ -45,4 +45,9 @@ tr:nth-child(odd) {
 
 .link {
     text-decoration: none;
+    color: #6e64ff;
+}
+
+.currSign:before {
+    content: '$';
 }

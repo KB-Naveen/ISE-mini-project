@@ -23,18 +23,25 @@
             <th>Price</th>
             <th>Market Cap</th>
         </tr>
-        <tbody>
         {% for c in res %}
         <tr>
             <td>{{c.rank}}</td>
             <td><img class="logo" src={{c.logo_url}}></td>
-            <td class="link"><a href="/{{c.symbol}}">{{c.name}}</a></td>
+            <td><a class="link" href="/{{c.symbol}}">{{c.name}}</a></td>
             <td>{{c.symbol}}</td>
-            <td class="price">${{c.price}}</td>
-            <td class="price">${{c.market_cap}}</td>
+            <td class="price">{{c.price}}</td>
+            <td class="price">{{c.market_cap}}</td>
         </tr>
         {% endfor %}
-        </tbody>
     </table>
+    <script>
+        let x = document.querySelectorAll(".price");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
+    </script>
 </body>
 </html>

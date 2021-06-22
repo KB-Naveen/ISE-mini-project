@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from django.conf.urls import url
 
 urlpatterns = [
-    path('',views.index, name='main'),
+    path('',views.index, name='index'),
+    path('<symbol>', views.coin, name='coin'),
 ]
