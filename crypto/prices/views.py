@@ -12,6 +12,17 @@ def index(request):
 def coin(request,symbol):
     url1 = "https://api.nomics.com/v1/currencies/ticker?key=" + key + "&ids="+symbol+"&interval=1d&convert=USD"
     url2 = "https://api.nomics.com/v1/currencies?key=" + key + "&ids="+symbol
+    csv_link = "https://query1.finance.yahoo.com/v7/finance/download/" + symbol + "-USD?period1=1592886747&period2=1624422747&interval=1d&events=history&includeAdjustedClose=true"
     res1 = requests.get(url1).json
     res2 = requests.get(url2).json
-    return render(request, "coin.html", {'res1':res1, 'res2':res2})
+    return render(request, "coin.html", {'res1':res1, 'res2':res2, 'csv_link':csv_link})
+
+def search(request):
+    symbol = request.GET['symbol']
+    symbol = symbol.upper()
+    url1 = "https://api.nomics.com/v1/currencies/ticker?key=" + key + "&ids=" + symbol + "&interval=1d&convert=USD"
+    url2 = "https://api.nomics.com/v1/currencies?key=" + key + "&ids=" + symbol
+    csv_link = "https://query1.finance.yahoo.com/v7/finance/download/"+symbol+"-USD?period1=1592886747&period2=1624422747&interval=1d&events=history&includeAdjustedClose=true"
+    res1 = requests.get(url1).json
+    res2 = requests.get(url2).json
+    return render(request, "coin.html", {'res1':res1, 'res2':res2, 'csv_link':csv_link})

@@ -51,3 +51,48 @@ tr:nth-child(odd) {
 .currSign:before {
     content: '$';
 }
+
+.search-box {
+    background-color: #e4e4e4;
+    height: 42px;
+    width: 375px;
+    border-radius: 21px;
+    margin: 30px 0 40px 50px;
+  }
+
+  .search-box > form {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box input {
+    background-color: #e4e4e4;
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 250px;
+    font-size: 20px;
+    color: #373737;
+  }
+
+  .fa-search {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .search-box button {
+    border: none;
+    outline: none;
+    background-color: #267a6b;
+    height: 42px;
+    width: 75px;
+    border-top-right-radius: 21px;
+    border-bottom-right-radius: 21px;
+    margin-left: 11px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }

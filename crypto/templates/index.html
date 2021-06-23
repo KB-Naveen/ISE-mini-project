@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Watch real-time crypto prices">
-
+    <script src="https://use.fontawesome.com/68ff8a9506.js"></script>
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Crypto Prices</title>
@@ -14,6 +14,14 @@
 </head>
 
 <body>
+    <h1 style="text-align: center;">Crypto Prices and Their Historical Data</h1>
+    <div id="search-box" class="search-box">
+        <form id="input_form" name="input_form" method="get" action="search/">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input id="symbol" name="symbol" onfocus="focuson()" onfocusout="focusoff()" autocomplete="off" type="text" placeholder="Enter Crypto Symbol">
+            <button type="submit">Search</button>
+        </form>
+    </div>
 
     <table>
         <tr>
@@ -35,6 +43,13 @@
         </tr>
         {% endfor %}
     </table>
+    <div style="margin-left:40px">
+        <h2>Authors:</h2>
+        <p>Basavaprasad S Nagur : 1MS18IS023</p>
+        <p>Hritesh G Raju : 1MS18IS038</p>
+        <p>JaiGanaSheelan B Sakar : 1MS18IS040</p>
+        <p>K B Naveen : 1MS18IS041</p>
+    </div>
     <script>
         let x = document.querySelectorAll(".price");
         for (let i = 0, len = x.length; i < len; i++) {
@@ -42,6 +57,16 @@
                       .toLocaleString('en');
             x[i].innerHTML = num;
             x[i].classList.add("currSign");
+        }
+
+        box = document.getElementById("search-box")
+
+        function focuson() {
+            box.style.boxShadow = "0px 4px 15px 0px grey";
+        }
+
+        function focusoff() {
+            box.style.boxShadow = "none";
         }
     </script>
 </body>

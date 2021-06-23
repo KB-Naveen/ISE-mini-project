@@ -28,6 +28,31 @@
         <div><p>Market Cap</p><p class="price">{{res1.0.market_cap}}</p></div>
         <div><p>Circulating Supply</p><p class="price">{{res1.0.circulating_supply}}</p></div>
     </div>
+    <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div id="tradingview_3b1bb"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+          <script type="text/javascript">
+          new TradingView.widget(
+          {
+          "width": 980,
+          "height": 610,
+          "symbol": "BINANCE:{{res1.0.symbol}}USD",
+          "interval": "D",
+          "timezone": "Asia/Kolkata",
+          "theme": "light",
+          "style": "1",
+          "locale": "in",
+          "toolbar_bg": "#f1f3f6",
+          "enable_publishing": false,
+          "withdateranges": true,
+          "allow_symbol_change": true,
+          "container_id": "tradingview_3b1bb"
+        }
+          );
+          </script>
+        </div>
+    <!-- TradingView Widget END -->
     <div class="div3">
         <div>
             <h2>About</h2>
@@ -42,6 +67,10 @@
         <div>
             <h2>White Paper Link:</h2>
             <a href="{{res2.0.whitepaper_url}}" target="_blank">{{res2.0.whitepaper_url}}</a>
+        </div>
+        <div>
+            <h2>Download Historical Data:</h2>
+            <a href="{{csv_link}}" target="_blank">Download</a>
         </div>
     </div>
     <script>
