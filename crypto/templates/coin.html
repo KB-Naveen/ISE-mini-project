@@ -9,24 +9,40 @@
 
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/coin.css' %}">
-    <title>{{res.0.name}} Prices</title>
+    <title>{{res1.0.name}} Prices</title>
 
 </head>
 
 <body>
-    <h1>{{res.0.name}} ({{res.0.symbol}})</h1>
+    <h1>{{res1.0.name}} ({{res1.0.symbol}})</h1>
     <div class="div1">
-        <img class="logo" src="{{res.0.logo_url}}">
+        <img class="logo" src="{{res1.0.logo_url}}">
         <div>
-            <p>Price</p>
+            <p>Price <span style="font-size:14px">(Chagne in 24h)</span></p>
             <div class="div2">
-                <p class="price">{{res.0.price}}</p>
-                <span style="{% if '-' in res.0.1d.price_change_pct %} color: #ff0000; {% else %} color: #00ff00; {% endif %}">&#160; {% if '-' in res.0.1d.price_change_pct %}{% else %}+{% endif %}{{res.0.1d.price_change_pct}}%</span>
+                <p class="price">{{res1.0.price}}</p>
+                <span style="{% if '-' in res1.0.1d.price_change_pct %} color: #ff0000; {% else %} color: #00ff00; {% endif %}">&#160; {% if '-' in res1.0.1d.price_change_pct %}{% else %}+{% endif %}{{res1.0.1d.price_change_pct}}%</span>
             </div>
-            <span style="{% if '-' in res.0.1d.price_change %} color: #ff0000; {% else %} color: #00ff00; {% endif %}">{% if '-' in res.0.1d.price_change_pct %}{% else %}+{% endif %}{{res.0.1d.price_change}}</span>
+            <span style="{% if '-' in res1.0.1d.price_change %} color: #ff0000; {% else %} color: #00ff00; {% endif %}">{% if '-' in res1.0.1d.price_change_pct %}{% else %}+{% endif %}{{res1.0.1d.price_change}}</span>
         </div>
-        <div><p>Market Cap</p><p class="price">{{res.0.market_cap}}</p></div>
-        <div><p>Circulating Supply</p><p class="price">{{res.0.circulating_supply}}</p></div>
+        <div><p>Market Cap</p><p class="price">{{res1.0.market_cap}}</p></div>
+        <div><p>Circulating Supply</p><p class="price">{{res1.0.circulating_supply}}</p></div>
+    </div>
+    <div class="div3">
+        <div>
+            <h2>About</h2>
+            <p style="text-align: justify;">
+                {{res2.0.description}}
+            </p>
+        </div>
+        <div>
+            <h2>Official Website Link:</h2>
+            <a href="{{res2.0.website_url}}" target="_blank">{{res2.0.website_url}}</a>
+        </div>
+        <div>
+            <h2>White Paper Link:</h2>
+            <a href="{{res2.0.whitepaper_url}}" target="_blank">{{res2.0.whitepaper_url}}</a>
+        </div>
     </div>
     <script>
         let x = document.querySelectorAll(".price");

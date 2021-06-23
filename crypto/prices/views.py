@@ -10,6 +10,8 @@ def index(request):
     return render(request, 'index.html', {'res':res})
 
 def coin(request,symbol):
-    url = "https://api.nomics.com/v1/currencies/ticker?key=" + key + "&ids="+symbol+"&interval=1d&convert=USD"
-    res = requests.get(url).json
-    return render(request, "coin.html", {'res':res})
+    url1 = "https://api.nomics.com/v1/currencies/ticker?key=" + key + "&ids="+symbol+"&interval=1d&convert=USD"
+    url2 = "https://api.nomics.com/v1/currencies?key=" + key + "&ids="+symbol
+    res1 = requests.get(url1).json
+    res2 = requests.get(url2).json
+    return render(request, "coin.html", {'res1':res1, 'res2':res2})
